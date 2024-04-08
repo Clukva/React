@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import Counter from "./components/Counter.jsx";
+import ClassCounter from "./components/ClassCounter.jsx";
+import "./styles/App.css";
 
 function App() {
-  const [likes, setLikes] = useState(0);
-  const [value, setValue] = useState("Текст");
-
-  function increment() {
-    setLikes(likes + 1);
-  }
-
-  function decrement() {
-    setLikes(likes - 1);
-  }
-
   return (
     <div className="App">
-      <h1>{likes}</h1>
-      <h1>{value}</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      ></input>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <Counter />
+
+      <ClassCounter />
+      <div className="post">
+        <div className="post__content">
+          <strong>1. Javascript</strong>
+          <div>Javascript - язык программиривания</div>
+        </div>
+        <div className="post__btn">
+          <button>Удалить</button>
+        </div>
+      </div>
     </div>
   );
 }
