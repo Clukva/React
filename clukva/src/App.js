@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Counter from "./components/Counter.jsx";
 import ClassCounter from "./components/ClassCounter.jsx";
+import PostList from "./components/PostList.jsx";
+
 import "./styles/App.css";
 
 function App() {
+  const [posts, setPosts] = useState([
+    { id: 1, title: "Javascript", body: "Description" },
+    { id: 2, title: "Javascript 2", body: "Description 2" },
+    { id: 3, title: "Javascript 3", body: "Description 3" },
+  ]);
+
   return (
     <div className="App">
       <Counter />
-
       <ClassCounter />
-      <div className="post">
-        <div className="post__content">
-          <strong>1. Javascript</strong>
-          <div>Javascript - язык программиривания</div>
-        </div>
-        <div className="post__btn">
-          <button>Удалить</button>
-        </div>
-      </div>
+      <PostList posts={posts} title={"Список постов 1"} />
+      <PostList posts={posts} title={"Список постов 3"} />
     </div>
   );
 }
